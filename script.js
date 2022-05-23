@@ -19,33 +19,35 @@ let computerPlay = function() {
 
 let userScore = 0;
 let computerScore = 0;
-let score = "You've won " + userScore + " rounds. Computer has won " + computerScore + " rounds.";
+let score = () => console.log("You've won " + userScore + " rounds. Computer has won " + computerScore + " rounds.");
 
 let match = function(userPlay, computerPlay) {
     switch (true) {
         case userPlay == computerPlay:
-            console.log("you both played " + userPlay + "! It's a tie!");
+            console.log(`you both played ${userPlay}! It's a tie!`);
             break;
-        case userPlay == "rock" && computerPlay == "scissors":
-            console.log("You played rock. The computer played scissors. You win this round!");
-            return ++userScore;
-        case userPlay == "paper" && computerPlay == "rock":
-            console.log("You played paper. The computer rock. You win this round!");
-            return ++userScore;
-        case userPlay == "scissors" && computerPlay == "paper":
-            console.log("You played scissors. The computer played paper. You win this round!");
-            return ++userScore;
-        case userPlay == "rock" && computerPlay == "paper":
-            console.log("You played rock. The computer played paper. The computer wins this round!");
-            return ++computerScore;
-        case userPlay == "paper" && computerPlay == "scissors":
-            console.log("You played paper. The computer played scissors. The computer wins this round!");
-            return ++computerScore;
-        case userPlay == "scissors" && computerPlay == "rock":
-            console.log("You played scissors. The computer played rock. The computer wins this round!");
-            return ++computerScore;
+        case (userPlay == "rock" && computerPlay == "scissors") || (userPlay == "paper" && computerPlay == "rock") || (userPlay == "scissors" && computerPlay == "paper"):
+            console.log(`You played ${userPlay}. The computer played ${computerPlay}. You win this round!`);
+            return userScore++;
+        default:
+            console.log(`You played ${userPlay}. The computer played ${computerPlay}. The computer wins this round!`);
+            return computerScore++;
     }
-    console.log(score);
 }
+
+function playGame(userScore, computerScore) {
+    while (userScore < 3 && computerScore < 3) {
+        match(userPlay(),computerPlay());
+        console.log(`User Score = ${userScore}`);
+        console.log(`Computer Score = ${computerScore}`);
+        score();
+    }
+    if (userScore == 3) {
+        console.log("You win the game! Congrats!")
+    } else {
+        console.log("You lose the game. Try again!")
+    }
+}
+playGame(userScore, computerScore);
 
 //Continue playing until either user or computer wins 3 rounds, then console.log overall winner
