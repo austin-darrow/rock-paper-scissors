@@ -35,7 +35,7 @@ let match = function(userPlay, computerPlay) {
     }
 }
 
-function playGame(userScore, computerScore) {
+function playGame() {
     while (userScore < 3 && computerScore < 3) {
         match(userPlay(),computerPlay());
         console.log(`User Score = ${userScore}`);
@@ -48,6 +48,6 @@ function playGame(userScore, computerScore) {
         console.log("You lose the game. Try again!")
     }
 }
-playGame(userScore, computerScore);
+playGame();
 
 //Continue playing until either user or computer wins 3 rounds, then console.log overall winner
