@@ -19,7 +19,7 @@ let computerPlay = function() {
 
 let userScore = 0;
 let computerScore = 0;
-let score = () => console.log("You've won " + userScore + " rounds. Computer has won " + computerScore + " rounds.");
+let score = () => console.log(`You've won ${userScore} rounds. Computer has won ${computerScore} rounds.`);
 
 let match = function(userPlay, computerPlay) {
     switch (true) {
