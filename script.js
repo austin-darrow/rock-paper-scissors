@@ -1,0 +1,1 @@
+//Step 1: Write pseudocode for the whole program
