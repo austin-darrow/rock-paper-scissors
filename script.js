@@ -1,8 +1,6 @@
 //Prompt user to choose rock, paper, or scissors. Store choice in variable. Make sure it's case insensitive
 
-let choose = prompt("Choose one: Rock, Paper, Scissors").toLowerCase();
-choose;
-let userPlay = choose;
+let userPlay = () => prompt("Choose one: Rock, Paper, Scissors").toLowerCase();
 
 //Use random method for computer to choose rock, paper, or scissors. Store in separate variable
 
@@ -15,20 +13,39 @@ let computerPlay = function() {
     } else {
         return "scissors";
     }
-} //note: use console.log(computerPlay()); to test
+}
 
 //Compare user vs. computer, console.log winner of that round
 
-if () {
-    userScore++;
-} else {
-    computerScore++;
+let userScore = 0;
+let computerScore = 0;
+let score = "You've won " + userScore + " rounds. Computer has won " + computerScore + " rounds.";
+
+let match = function(userPlay, computerPlay) {
+    switch (true) {
+        case userPlay == computerPlay:
+            console.log("you both played " + userPlay + "! It's a tie!");
+            break;
+        case userPlay == "rock" && computerPlay == "scissors":
+            console.log("You played rock. The computer played scissors. You win this round!");
+            return ++userScore;
+        case userPlay == "paper" && computerPlay == "rock":
+            console.log("You played paper. The computer rock. You win this round!");
+            return ++userScore;
+        case userPlay == "scissors" && computerPlay == "paper":
+            console.log("You played scissors. The computer played paper. You win this round!");
+            return ++userScore;
+        case userPlay == "rock" && computerPlay == "paper":
+            console.log("You played rock. The computer played paper. The computer wins this round!");
+            return ++computerScore;
+        case userPlay == "paper" && computerPlay == "scissors":
+            console.log("You played paper. The computer played scissors. The computer wins this round!");
+            return ++computerScore;
+        case userPlay == "scissors" && computerPlay == "rock":
+            console.log("You played scissors. The computer played rock. The computer wins this round!");
+            return ++computerScore;
+    }
+    console.log(score);
 }
-console.log(score);
 
 //Continue playing until either user or computer wins 3 rounds, then console.log overall winner
-
-let round = 1;
-let userScore;
-let computerScore;
-let score = "You've won " + userScore + " rounds. Computer has won " + computerScore + " rounds.";
