@@ -43,11 +43,26 @@ function playGame() {
         score();
     }
     if (userScore == 3) {
-        console.log("You win the game! Congrats!")
+        let repeat = confirm("You win the game! Congrats! Play again?");
+        if (repeat) {
+            userScore = 0;
+            computerScore = 0;
+            playGame();
+        } else {
+            console.log("Goodbye!")
+        }
     } else {
-        console.log("You lose the game. Try again!")
+        let repeat = confirm("You lose the game. Try again?");
+        if (repeat) {
+            userScore = 0;
+            computerScore = 0;
+            playGame();
+        } else {
+            console.log("Goodbye!")
+        }
     }
 }
+
 playGame();
 
 //Continue playing until either user or computer wins 3 rounds, then console.log overall winner
